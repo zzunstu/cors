@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <iframe src="http://127.0.0.1:5501/page3.html" onload="load()" id="iframe1"></iframe>
+    <script>
+      let iframe1 = document.querySelector("#iframe1");
+      let isFirst = true;
+      function load(){
+        // console.log(iframe1.contentWindow.name);  // 出错
+        if (isFirst) {
+          iframe1.src="http://127.0.0.1:5500/src/window-name/page2.html";
+          isFirst = false;
+        }
+        else {
+          // 同域，不报错
+          console.log(iframe1.contentWindow.name);
+        }
+      }
+    </script>
+  </body>
+</html>
